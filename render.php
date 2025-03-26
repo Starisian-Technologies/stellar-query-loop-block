@@ -27,7 +27,6 @@ function sparxstar_user_post_query_render_callback($attributes, $content) {
     }
 
     $query = new WP_Query($args);
-
     ob_start();
 
     if ($query->have_posts()) {
@@ -35,10 +34,7 @@ function sparxstar_user_post_query_render_callback($attributes, $content) {
         while ($query->have_posts()) {
             $query->the_post();
             echo '<div class="user-post-item">';
-            if (has_post_thumbnail()) {
-                echo '<a href="' . esc_url(get_permalink()) . '">' . get_the_post_thumbnail(null, 'thumbnail') . '</a>';
-            }
-            echo '<h3><a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a></h3>';
+            echo do_blocks($content); // Render your InnerBlocks layout here
             echo '</div>';
         }
         echo '</div>';
@@ -47,7 +43,6 @@ function sparxstar_user_post_query_render_callback($attributes, $content) {
     }
 
     wp_reset_postdata();
-
     return ob_get_clean();
 }
 
