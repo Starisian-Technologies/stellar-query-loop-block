@@ -1,0 +1,24 @@
+{
+  "apiVersion": 2,
+  "name": "sparxstar/user-post-query",
+  "title": "User Post Query",
+  "category": "widgets",
+  "icon": "admin-users",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "postType": { "type": "string", "default": "post" },
+    "postStatus": { "type": "array", "default": ["publish"] },
+    "authorType": { "type": "string", "default": "all" },
+    "specificAuthor": { "type": "string", "default": "" },
+    "taxonomy": { "type": "string", "default": "" },
+    "taxonomyTerm": { "type": "string", "default": "" },
+    "postsPerPage": { "type": "number", "default": 5 },
+    "order": { "type": "string", "default": "DESC" },
+    "orderBy": { "type": "string", "default": "date" }
+  }
+}
