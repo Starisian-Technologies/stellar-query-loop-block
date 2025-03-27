@@ -9,7 +9,7 @@ import { useSelect } from '@wordpress/data';
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
 
-registerBlockType('sparxstar/user-post-query', {
+registerBlockType('stellar-query-loop-block', {
     title: 'User Post Query',
     icon: 'admin-users',
     category: 'widgets',
@@ -104,7 +104,7 @@ registerBlockType('sparxstar/user-post-query', {
                     </PanelBody>
                 </InspectorControls>
                 <div {...blockProps}>
-                    <ServerSideRender block="sparxstar/user-post-query" attributes={attributes} />
+                    <ServerSideRender block="stellar-query-loop-block" attributes={attributes} />
                 </div>
             </>
         );
