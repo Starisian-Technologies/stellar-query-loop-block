@@ -1,5 +1,5 @@
 <?php
-
+namespace Sparxstar;
 /**
 * Plugin Name: stellar-query-loop-block
 * Plugin URI: https://starisian.com

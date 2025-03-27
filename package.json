@@ -1,11 +1,11 @@
 {
-  "name": "stellar-query-loop-block",
+  "name": "stellar-user-post-query-block",
   "version": "1.0.0",
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^26.0.0"
+    "@wordpress/scripts": "^30.13.0"
   }
 }
