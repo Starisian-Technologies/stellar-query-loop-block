@@ -1,14 +1,15 @@
 <?php
+
 /**
-* Plugin Name: user-post-query-block
+* Plugin Name: stellar-query-loop-block
 * Plugin URI: https://starisian.com
-* Description: Your extension's description text.
+* Description: A stellar query loop block with parameters to display CPTs, post by author, non published posts.
 * Version: 1.0.0
 * Author: Max Barrett
 * Author URI: https://github.com/MaximillianGroup
 * Developer: Starisian Technologies
 * Developer URI: https://github.com/Starisian-Technologies
-* Text Domain: starisian-user-post-query-block
+* Text Domain: stellar-query-loop-block
 * Domain Path: /languages
 *
 *
@@ -16,7 +17,7 @@
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-function user_post_query_block_init() {
+function stellar-query-loop-block_init() {
     register_block_type(__DIR__ . '/build');
 }
-add_action('init', 'user_post_query_block_init');
+add_action('init', 'stellar-query-loop-block_init');
