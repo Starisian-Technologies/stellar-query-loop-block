@@ -1,5 +1,5 @@
 <?php
-function sparxstar_user_post_query_render_callback($attributes, $content) {
+function stellar-query-loop-block_render_callback($attributes, $content) {
     if (!isset($attributes['postType'])) return '';
 
     $args = [
@@ -30,7 +30,7 @@ function sparxstar_user_post_query_render_callback($attributes, $content) {
     ob_start();
 
     if ($query->have_posts()) {
-        echo '<div class="sparxstar-user-post-query">';
+        echo '<div class="stellar-query-loop-block">';
         while ($query->have_posts()) {
             $query->the_post();
             echo '<div class="user-post-item">';
@@ -47,5 +47,5 @@ function sparxstar_user_post_query_render_callback($attributes, $content) {
 }
 
 register_block_type(__DIR__, [
-    'render_callback' => 'sparxstar_user_post_query_render_callback'
+    'render_callback' => 'stellar-query-loop-block_render_callback'
 ]);
