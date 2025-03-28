@@ -1,5 +1,5 @@
 {
-  "name": "stellar-user-post-query-block",
+  "name": "stellar-query-loop-block",
   "version": "1.0.0",
   "scripts": {
     "build": "wp-scripts build",

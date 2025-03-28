@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
-  "name": "stellar-query-loop-block",
-  "title": "User Post Query",
+  "name": "stellarqueryloopblock/stellar-query-loop-block",
+  "title": "Stellar Query Loop",
   "category": "widgets",
   "icon": "admin-users",
   "editorScript": "file:./index.js",

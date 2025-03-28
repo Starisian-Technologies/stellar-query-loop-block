@@ -8,8 +8,9 @@ import {
 import { useSelect } from '@wordpress/data';
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
+import { useEffect, useState } from '@wordpress/element';
 
-registerBlockType('stellar-query-loop-block', {
+registerBlockType('stellar/query-loop-block', {
     title: 'User Post Query',
     icon: 'admin-users',
     category: 'widgets',
@@ -29,6 +30,13 @@ registerBlockType('stellar-query-loop-block', {
         const postTypes = useSelect((select) => select('core').getPostTypes({ per_page: -1 }) || [], []);
         const taxonomies = useSelect((select) => select('core').getTaxonomies() || [], []);
 
+        const [statusOptions, setStatusOptions] = useState([]);
+        useEffect(() => {
+            if (window.StellarQueryLoopBlockPostStatusOptions) {
+                setStatusOptions(window.StellarQueryLoopBlockPostStatusOptions);
+            }
+        }, []);
+
         return (
             <>
                 <InspectorControls>
@@ -39,11 +47,30 @@ registerBlockType('stellar-query-loop-block', {
                             options={postTypes.map((type) => ({ label: type.name, value: type.slug }))}
                             onChange={(val) => setAttributes({ postType: val })}
                         />
-                        <TextControl
-                            label="Post Status (comma-separated)"
-                            value={attributes.postStatus.join(',')}
-                            onChange={(val) => setAttributes({ postStatus: val.split(',').map((v) => v.trim()) })}
-                        />
+                        {statusOptions.length > 0 && (
+                            <>
+                                <label>Post Status</label>
+                                {statusOptions.map((status) => (
+                                    <div key={status.value}>
+                                        <input
+                                            type="checkbox"
+                                            checked={attributes.postStatus.includes(status.value)}
+                                            onChange={(e) => {
+                                                const newStatus = [...attributes.postStatus];
+                                                if (e.target.checked) {
+                                                    newStatus.push(status.value);
+                                                } else {
+                                                    const index = newStatus.indexOf(status.value);
+                                                    if (index > -1) newStatus.splice(index, 1);
+                                                }
+                                                setAttributes({ postStatus: newStatus });
+                                            }}
+                                        />
+                                        {status.label}
+                                    </div>
+                                ))}
+                            </>
+                        )}
                         <SelectControl
                             label="Author Filter"
                             value={attributes.authorType}
@@ -104,7 +131,7 @@ registerBlockType('stellar-query-loop-block', {
                     </PanelBody>
                 </InspectorControls>
                 <div {...blockProps}>
-                    <ServerSideRender block="stellar-query-loop-block" attributes={attributes} />
+                    <ServerSideRender block="stellar/query-loop-block" attributes={attributes} />
                 </div>
             </>
         );
