@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 {
-  "apiVersion": 2,
+  "apiVersion": "1.0",
   "name": "stellarqueryloopblock/stellar-query-loop-block",
   "title": "Stellar Query Loop",
   "category": "widgets",
+  "description": "A query loop block with params for current user as author and non-published status.",
   "icon": "admin-users",
   "editorScript": "file:./index.js",
   "render": "file:./render.php",
@@ -18,34 +18,8 @@
     "specificAuthor": { "type": "string", "default": "" },
     "taxonomy": { "type": "string", "default": "" },
     "taxonomyTerm": { "type": "string", "default": "" },
-    "postsPerPage": { "type": "number", "default": 5 },
+    "postsPerPage": { "type": "string", "default": "10"},
     "order": { "type": "string", "default": "DESC" },
     "orderBy": { "type": "string", "default": "date" }
   }
 }
-=======
-{
-  "apiVersion": 2,
-  "name": "sparxstar/stellar-user-post-query-loop",
-  "title": "Stellar User Post Query Loop",
-  "category": "widgets",
-  "icon": "admin-users",
-  "editorScript": "file:./index.js",
-  "render": "file:./render.php",
-  "supports": {
-    "html": false,
-    "align": ["wide", "full"]
-  },
-  "attributes": {
-    "postType": { "type": "string", "default": "post" },
-    "postStatus": { "type": "array", "default": ["publish"] },
-    "authorType": { "type": "string", "default": "all" },
-    "specificAuthor": { "type": "string", "default": "" },
-    "taxonomy": { "type": "string", "default": "" },
-    "taxonomyTerm": { "type": "string", "default": "" },
-    "postsPerPage": { "type": "number", "default": 5 },
-    "order": { "type": "string", "default": "DESC" },
-    "orderBy": { "type": "string", "default": "date" }
-  }
-}
->>>>>>> bf973c4 (03282025MB)
