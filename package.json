@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "stellar-query-loop-block",
   "version": "1.0.0",
@@ -9,3 +10,16 @@
     "@wordpress/scripts": "^30.13.0"
   }
 }
+=======
+{
+  "name": "stellar-user-post-query-block",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.13.0"
+  }
+}
+>>>>>>> bf973c4 (03282025MB)
