@@ -17,7 +17,7 @@ namespace stellarqueryloopblock;
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-function stellar_query_loop_block_init() {
+function stellar_query_loop_block_init(): void {
     register_block_type(__DIR__ . '/build');
 }
 add_action('init', 'stellarqueryloopblock\stellar_query_loop_block_init');
