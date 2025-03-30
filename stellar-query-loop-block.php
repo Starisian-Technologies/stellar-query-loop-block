@@ -1,23 +1,58 @@
 <?php
-namespace stellarqueryloopblock;
 /**
+ * Plugin Name:       Stellar Query Loop Block
+ * Description:       Example block scaffolded with Create Block tool.
+ * Version:           0.1.0
+ * Requires at least: 6.7
+ * Requires PHP:      7.4
+ * Author:            The WordPress Contributors
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       stellar-query-loop-block
+ *
+ * @package CreateBlock
+ */
+
+ /**
 * Plugin Name: stellar-query-loop-block
-* Plugin URI: https://starisian.com
+* Plugin URI: https://github.com/Starisian-Technologies/stellar-query-loop-block
 * Description: Your extension's description text.
-* Version: 1.0.0
-* Author: Max Barrett
+* Version:           0.1.0
+* Requires at least: 6.7
+* Requires PHP:      7.4
+* Author: Starisian Technologies (Max Barrett)
 * Author URI: https://github.com/MaximillianGroup
 * Developer: Starisian Technologies
-* Developer URI: https://github.com/Starisian-Technologies
-* Text Domain: starisian-user-post-query-block
-* Domain Path: /languages
+* Developer URI: https:cd//starisian.com
+* License:           GPL-2.0-or-later
+* License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain:       stellar-query-loop-block
 *
-*
-* License: GNU General Public License v3.0
-* License URI: http://www.gnu.org/licenses/gpl-3.0.html
+* @package CreateBlock
 */
 
-function stellar_query_loop_block_init(): void {
-    register_block_type(__DIR__ . '/build');
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
-add_action('init', 'stellarqueryloopblock\stellar_query_loop_block_init');
+
+/**
+ * Registers the block using the metadata loaded from the `block.json` file.
+ * Behind the scenes, it registers also all assets so they can be enqueued
+ * through the block editor in the corresponding context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ */
+function create_block_stellar_query_loop_block_block_init() {
+	if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) { // Function introduced in WordPress 6.8.
+		wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
+	} else {
+		if ( function_exists( 'wp_register_block_metadata_collection' ) ) { // Function introduced in WordPress 6.7.
+			wp_register_block_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
+		}
+		$manifest_data = require __DIR__ . '/build/blocks-manifest.php';
+		foreach ( array_keys( $manifest_data ) as $block_type ) {
+			register_block_type( __DIR__ . "/build/{$block_type}" );
+		}
+	}
+}
+add_action( 'init', 'create_block_stellar_query_loop_block_block_init' );

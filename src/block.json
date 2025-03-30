@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/stellar-query-loop-block",
+	"version": "0.1.0",
+	"title": "Stellar Query Loop Block",
+	"category": "widgets",
+	"description": "Display your site's copyright date.",
+	"example": {},
+	"attributes": {
+		"fallbackCurrentYear": {
+			"type": "string"
+		},
+		"showStartingYear": {
+			"type": "boolean"
+		},
+		"startingYear": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"color": {
+			"background": false,
+			"text": true
+		},
+		"html": false,
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"textdomain": "stellar-query-loop-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
