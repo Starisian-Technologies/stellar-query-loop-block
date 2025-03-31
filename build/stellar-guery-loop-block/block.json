@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "stellar/query-loop-block",
+  "version": "1.0.0",
+  "title": "Stellar Query Loop",
+  "category": "widgets",
+  "icon": "admin-users",
+  "description": "Query loop block with filters for author, status, taxonomy, and post type.",
+  "attributes": {
+    "postType": {
+      "type": "string",
+      "default": "post"
+    },
+    "postStatus": {
+      "type": "array",
+      "default": [
+        "publish"
+      ]
+    },
+    "authorType": {
+      "type": "string",
+      "default": "all"
+    },
+    "specificAuthor": {
+      "type": "string",
+      "default": ""
+    },
+    "taxonomy": {
+      "type": "string",
+      "default": ""
+    },
+    "taxonomyTerm": {
+      "type": "string",
+      "default": ""
+    },
+    "postsPerPage": {
+      "type": "string",
+      "default": "10"
+    },
+    "order": {
+      "type": "string",
+      "default": "DESC"
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "html": false,
+    "color": {
+      "text": true,
+      "background": false
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "textdomain": "stellar-guery-loop-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
